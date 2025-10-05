@@ -3,16 +3,17 @@
 body { background: #f4f6fb; color: #202124; min-height: 100vh; }
 
 .container {
-    max-width: 600px;
-    margin: 70px auto;
+    max-width: 600px;        
+    margin: 40px auto;
     background: #fff;
     border-radius: 12px;
     box-shadow: 0 4px 16px rgba(30,30,60,0.08);
-    padding: 2rem 1.5rem 1rem 1.5rem;
+    padding: 3rem 2.5rem 2rem 2.5rem; 
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 2rem;              
 }
+
 
 header h1 {
     font-size: 2rem;
