@@ -1,2 +1,2 @@
-# Expense-Tracker
 A simple, responsive expense tracker website using only HTML and CSS. The design allows adding an expense with an amount and category, displays all expenses, and shows a running total.
+I am still working on this. Probably will add a backend to this so as to store and download a month's/quaterly/half-yearly/yearly expense sheet. It will be a personal dashboard where you can track your expenses and compare the spendings and savings over a year. One would be able to make plans and prepare ahead for the upcoming month's expenses too.
