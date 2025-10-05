@@ -3,7 +3,7 @@
 body { background: #f4f6fb; color: #202124; min-height: 100vh; }
 
 .container {
-    max-width: 400px;
+    max-width: 600px;
     margin: 40px auto;
     background: #fff;
     border-radius: 12px;
