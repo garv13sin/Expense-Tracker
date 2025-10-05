@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="expense-tracker.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Expense Tracker</h1>
+            <p>Track your expenses easily and stay organized.</p>
+        </header>
+
+        <section id="add-expense">
+            <form id="expense-form">
+                <input type="number" id="amount" placeholder="Amount" min="0" required>
+                <select id="category" required>
+                    <option value="" disabled selected>Category</option>
+                    <option value="Food">Food</option>
+                    <option value="Travel">Travel</option>
+                    <option value="Shopping">Shopping</option>
+                    <option value="Utilities">Utilities</option>
+                    <option value="Other">Other</option>
+                </select>
+                <button type="submit">Add Expense</button>
+            </form>
+        </section>
+
+        <section id="expense-list-section">
+            <h2>All Expenses</h2>
+            <ul id="expense-list"></ul>
+        </section>
+
+        <footer>
+            <div id="total-container">
+                Total Spent: ₹<span id="total">0</span>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Expense tracker logic
+        const form = document.getElementById('expense-form');
+        const amountInput = document.getElementById('amount');
+        const categoryInput = document.getElementById('category');
+        const expenseList = document.getElementById('expense-list');
+        const totalDisplay = document.getElementById('total');
+
+        let expenses = [];
+        let total = 0;
+
+        function updateExpenseList() {
+            expenseList.innerHTML = '';
+            expenses.forEach(exp => {
+                const li = document.createElement('li');
+                li.className = 'expense-item';
+                li.textContent = `${exp.category}: ₹${exp.amount}`;
+                expenseList.appendChild(li);
+            });
+        }
+
+        function updateTotal() {
+            totalDisplay.textContent = total;
+        }
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const amount = parseFloat(amountInput.value);
+            const category = categoryInput.value;
+            if (isNaN(amount) || amount <= 0 || !category) return;
+
+            expenses.push({ amount: amount.toFixed(2), category });
+            total += amount;
+            updateExpenseList();
+            updateTotal();
+
+            amountInput.value = '';
+            categoryInput.selectedIndex = 0;
+        });
+    </script>
+</body>
+</html>
